@@ -5,7 +5,8 @@ game = Mastermind::Game.new
 
 $stdout.puts <<EOD
 *-----------------------------------------------*
-          Welcome to Mastermind!
+
+             Welcome to Mastermind!
 
     Feedback key:
 
@@ -17,24 +18,32 @@ $stdout.puts <<EOD
 
       R ::: red      B ::: blue    G ::: green
       Y ::: yellow   W ::: white   C ::: Cyan
+
 *-----------------------------------------------*
-       Guessing example: RGYB
-*-----------------------------------------------*
+
+            Guessing example: RGYB
+
        The codemaster has set the code!!
+
 *-----------------------------------------------*
 EOD
 
 
 until game.over?
 
-  guess = ($stdin.gets "Enter your guess:").chomp
+  $stdout.puts "Enter your guess: "
+  guess = $stdin.gets.chomp
   game.make_guess(guess)
 
   $stdout.puts <<EOD
+
 *-----------------------------------------------*
+
 Your guess: #{guess}
 Feedback:   #{game.current_feedback}
+
 *-----------------------------------------------*
+
 EOD
 
 end
