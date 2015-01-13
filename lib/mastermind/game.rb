@@ -8,12 +8,14 @@ module Mastermind
   end
 
   class Game
-    attr_reader :player, :codemaster, :code
+    attr_reader :player, :codemaster, :code, :guesses, :feedback
 
     def initialize
       @started = false
-      @player = Player.new
+      @player = Player.new(self)
       @codemaster = Codemaster.new
+      @guesses = []
+      @feedback = []
     end
 
     def start
@@ -23,6 +25,23 @@ module Mastermind
 
     def started?
       @started
+    end
+
+    def make_guess(guessed_code)
+      @guesses << guessed_code
+      feedback = ''
+
+      code.split('').each_with_index do |peg, index|
+        if guessed_code.include?(peg) && guessed_code[index] == peg
+          feedback += '*'
+        elsif guessed_code.include?(peg)
+          feedback += 'x'
+        else
+          feedback += '-'
+        end
+      end
+
+      @feedback << feedback
     end
   end
 end
