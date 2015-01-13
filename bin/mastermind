@@ -1,1 +1,45 @@
 #!/usr/bin/env ruby
+
+require 'mastermind'
+game = Mastermind::Game.new
+
+$stdout.puts <<EOD
+*-----------------------------------------------*
+          Welcome to Mastermind!
+
+    Feedback key:
+
+      * ::: Correct peg found in correct place
+      x ::: Correct peg found in wrong spot
+      - ::: Incorrect peg found
+
+    Color key:
+
+      R ::: red      B ::: blue    G ::: green
+      Y ::: yellow   W ::: white   C ::: Cyan
+*-----------------------------------------------*
+       Guessing example: RGYB
+*-----------------------------------------------*
+       The codemaster has set the code!!
+*-----------------------------------------------*
+EOD
+
+
+until game.over?
+
+  guess = ($stdin.gets "Enter your guess:").chomp
+  game.make_guess(guess)
+
+  $stdout.puts <<EOD
+*-----------------------------------------------*
+Your guess: #{guess}
+Feedback:   #{game.current_feedback}
+*-----------------------------------------------*
+EOD
+
+end
+
+$stdout.puts("You've won the game!")
+$stdout.puts(game.code)
+
+quit
