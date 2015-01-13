@@ -7,7 +7,7 @@ The game Mastermind
 Add this line to your application's Gemfile:
 
 ```
-$ git clone https://github.com/joemsak/mastermind
+$ git clone -b iteration-c https://github.com/joemsak/mastermind
 $ cd mastermind
 $ bundle
 $ rake install
