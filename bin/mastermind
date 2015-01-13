@@ -51,4 +51,4 @@ end
 $stdout.puts("You've won the game!")
 $stdout.puts(game.code)
 
-quit
+exit
