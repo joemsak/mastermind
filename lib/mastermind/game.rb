@@ -1,7 +1,6 @@
-module Mastermind
-  class Player
-  end
+require 'mastermind/player'
 
+module Mastermind
   class Codemaster
     def create_code
       'RGBY'
