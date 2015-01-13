@@ -6,19 +6,13 @@ The game Mastermind
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'mastermind'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mastermind
-
-## Usage
+$ git clone https://github.com/joemsak/mastermind
+$ cd mastermind
+$ bundle
+$ rake install
+```
+## Run the game after installation above
 
 ```
 $ mastermind
